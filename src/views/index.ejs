@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>finterest</title>
+        <!-- CDN BOOTSTRAP-->
+        <%- include("partials/head") %>
+</head>
+<body>
+        <%- include("partials/navigation") %>
+    <div class="container p-4">
+        <div class="row">        
+            <div class="card-columns">
+                    <% data.forEach(function(data){ %>
+                    <div class="card animated fadeInDown">
+                        <div class="card-header">
+                            <h3 class="card-title"><%= data.title %></h3>
+                            <p class="card-text"><%= format(data.created_at) %></p>
+                        </div>
+                        <img src="<%= data.path %>" class="card-img-top" >
+                        <div class="card-body">
+                        </div>
+                        <div class="card-footer">
+                            <a href="/image/<%= data._id %>" class="btn btn-success">View profile</a>
+                        </div>
+                    </div>  
+            <% }) %>  
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
